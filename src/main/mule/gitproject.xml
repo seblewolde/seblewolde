@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="2678c3ff-7eb0-4142-8568-7f86ca2e326f" >
+		<http:listener-connection host="0.0.0.0" port="8089" />
+	</http:listener-config>
+	<flow name="gitprojectFlow" doc:id="cf753e4d-8b39-4623-9ced-e00c1c354f33" >
+		<http:listener doc:name="Listener" doc:id="b27da6dc-285e-4201-ab5c-19aa9dcace46" path="/gitproject" config-ref="HTTP_Listener_config"/>
+		<set-payload value="#['git message']" doc:name="Set Payload" doc:id="fafb7d0f-81e0-4805-97b6-465c7fa2e7d3" />
+	</flow>
+</mule>
